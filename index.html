@@ -7,15 +7,15 @@
         <title>Heat Flow</title>
         <link rel="stylesheet" href="stylesheet.css">
     </head>
-    <body onload="onload();">
-        <div class="table">
+    <body onload="start();">
+        <div id="menutop" class="table">
             <div id="info" class="info">
                 <div id="temp">
-                    Temperature at Cursor: 0
+                    Temperature at Cursor: 0.0000000000
                 </div>
                 <br />
                 <div id="mat">
-                    Thermal diffusity at Cursor: 0
+                    Thermal diffusity at Cursor: 0.0000000000
                 </div>
             </div>
             <div id="options" class="options">
@@ -24,6 +24,8 @@
                     <input type="radio" onclick="displayType = 0;" name="display" value="0"> Display 2<br>
                 </form>
                 <input type="button" onclick="start();" value="Regenerate">
+                <input type="range" onchange="timeChange();" id="timeSlider" value="1" min="0" max="10" step="0.01">
+                Time
             </div>
         </div>
         <div id="main">

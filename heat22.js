@@ -19,24 +19,23 @@ var useOutsideTemp = true;
 // 0 or 1 for different temperature displays
 var displayType = 1;
 
-function onload() {
-    start();
-}
+// Draw width & height of each cell
+var cs = Math.min(window.innerWidth/w, (window.innerHeight*0.9)/h);
+var cw = cs, ch = cs;
 
 // Load canvas to draw stuff
 var canvas = document.getElementById("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+var tempText = document.getElementById("temp");
+var matText = document.getElementById("mat");
+var menutop = document.getElementById("menutop");
+canvas.width = cw*w;
+canvas.height = ch*h;
+canvas.style = "margin-top: " + menutop.offsetHeight + "px; left: 50%; width: " + cw*w + "; height: " + cw*h + "; margin-left: -" + (cw*w/2) + "px;";
+
 document.body.insertBefore(canvas, document.body.childNodes[0]);
 var ctx = canvas.getContext('2d');
 canvas.addEventListener('mousemove', onMouseMove, false);
 window.addEventListener('resize', resize, false);
-var tempText = document.getElementById("temp");
-var matText = document.getElementById("mat");
-
-// Draw width & height of each cell
-var cs = Math.min(canvas.width/w, (canvas.height*0.82)/h);
-var cw = cs, ch = cs;
 
 // Mouse position
 var mx = -1, my = -1;
@@ -191,12 +190,16 @@ function onMouseMove(e) {
     my = y;
 }
 
-function resize(e) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+function timeChange() {
+    dt = document.getElementById('timeSlider').value;
+}
 
-    console.log(canvas.width + ", " + canvas.height);
-    var cs = Math.min(canvas.width/w, (canvas.height*0.82)/h);
+function resize(e) {
+    var cs = Math.min(window.innerWidth/w, (window.innerHeight*0.9)/h);
     cw = cs;
     ch = cs;
+
+    canvas.style = "margin-top: " + menutop.offsetHeight + "px; left: 50%; width: " + cw*w + "; height: " + cw*h + "; margin-left: -" + (cw*w/2) + "px;";
+    canvas.width = cw*w;
+    canvas.height = ch*h;
 }
