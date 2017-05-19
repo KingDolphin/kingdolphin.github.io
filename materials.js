@@ -1,6 +1,6 @@
 class Material {
-    constructor(á, u0, x, y, z) {
-        this.á = á;
+    constructor(a, u0, x, y, z) {
+        this.a = a;
         this.u = u0;
         this.x = x;
         this.y = y;
@@ -10,7 +10,7 @@ class Material {
         this.u += u;
     }
     getThermalDiffusivity() {
-        return this.á;
+        return this.a;
     }
     getU() {
         return this.u;

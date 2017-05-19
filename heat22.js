@@ -42,7 +42,7 @@ var interval;
 start();
 
 function start() {
-    // Load air into grid (á = 1.9e-1)
+    // Load air into grid (a = 1.9e-1)
     for (var x = 0; x < w; x++) {
         u[x] = [];
         for (var y = 0; y < h; y++)
@@ -120,33 +120,33 @@ function step() {
     // Update info box for temperature at mouse
     if (mx >= 0 && mx < w && my >= 0 && my < h) {
         var u0 = getTemp(mx, my);
-        var á = u[mx][my].getThermalDiffusivity();
+        var a = u[mx][my].getThermalDiffusivity();
         tempText.innerHTML = "Temperature at Cursor: " + u0;
-        matText.innerHTML = "Thermal diffusity at Cursor: " + á;
+        matText.innerHTML = "Thermal diffusity at Cursor: " + a;
     }
 }
 
 function getUt(x, y) {
     // Store this heat and thermal diffusity
     var u0 = getTemp(x,y);
-    var á = u[x][y].getThermalDiffusivity();
+    var a = u[x][y].getThermalDiffusivity();
 
     // Sample surrounding heat
-    var u1 = getTemp(x-1,y), á1 = getThermalDiffusivity(x-1,y);
-    var u2 = getTemp(x+1,y), á2 = getThermalDiffusivity(x+1,y);
-    var u3 = getTemp(x,y-1), á3 = getThermalDiffusivity(x,y-1);
-    var u4 = getTemp(x,y+1), á4 = getThermalDiffusivity(x,y+1);
+    var u1 = getTemp(x-1,y), a1 = getThermalDiffusivity(x-1,y);
+    var u2 = getTemp(x+1,y), a2 = getThermalDiffusivity(x+1,y);
+    var u3 = getTemp(x,y-1), a3 = getThermalDiffusivity(x,y-1);
+    var u4 = getTemp(x,y+1), a4 = getThermalDiffusivity(x,y+1);
 
     // Calculate ratio of surrounding thermal diffusities
-    var r1 = á1 / á;
-    var r2 = á2 / á;
-    var r3 = á3 / á;
-    var r4 = á4 / á;
+    var r1 = a1 / a;
+    var r2 = a2 / a;
+    var r3 = a3 / a;
+    var r4 = a4 / a;
 
     // Calculate conduction (sum of surrounding heats - current heat)
     var conduction = (u1*r1 + u2*r2 + u3*r3 + u4*r4) / (r1+r2+r3+r4) - u0;
 
-    return á * conduction;
+    return a * conduction;
 }
 
 function getThermalDiffusivity(x, y) {

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta name="description" content="Heat Flow">
+        <meta name="viewport" content="width=device-width", initial-scale="1">
+
+        <title>Heat Flow</title>
+        <link rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <div class="table">
+            <div id="info" class="info">
+                <div id="temp">
+                    Temperature at Cursor: 0
+                </div>
+                <br />
+                <div id="mat">
+                    Thermal diffusity at Cursor: 0
+                </div>
+            </div>
+            <div id="options" class="options">
+                <form>
+                    <input type="radio" onclick="displayType = 1;" name="display" value="1" checked> Display 1<br>
+                    <input type="radio" onclick="displayType = 0;" name="display" value="0"> Display 2<br>
+                </form>
+                <input type="button" onclick="start();" value="Regenerate">
+            </div>
+        </div>
+        <div id="main">
+            <canvas id="canvas">
+                Your browser doesn't appear to support the
+                <code>&lt;canvas&gt;</code> element.
+            </canvas>
+
+            <script src="vector.js"></script>
+            <script src="materials.js"></script>
+            <script src="heat22.js"></script>
+        </div>
+    </body>
+</html>
