@@ -16,7 +16,7 @@ class Material {
         return this.u;
     }
     print() {
-        console.log("Material : " + this.u + ", " + this.á);
+        console.log("Material : " + this.u + ", " + this.a);
     }
 };
 
@@ -27,6 +27,6 @@ class Heater extends Material {
     heat(u) {
     }
     print() {
-        console.log("Heater : " + this.u + ", " + this.á);
+        console.log("Heater : " + this.u + ", " + this.a);
     }
 }
