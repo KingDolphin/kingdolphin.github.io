@@ -19,6 +19,10 @@ var useOutsideTemp = true;
 // 0 or 1 for different temperature displays
 var displayType = 1;
 
+function onload() {
+    start();
+}
+
 // Load canvas to draw stuff
 var canvas = document.getElementById("canvas");
 canvas.width = window.innerWidth;
@@ -38,8 +42,6 @@ var cw = cs, ch = cs;
 var mx = -1, my = -1;
 
 var interval;
-
-start();
 
 function start() {
     // Load air into grid (a = 1.9e-1)
