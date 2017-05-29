@@ -187,7 +187,6 @@ function onMouseMove(e) {
     var rect = canvas.getBoundingClientRect();
     var x = Math.floor((e.clientX - rect.left) / cw);
     var y = Math.floor((e.clientY - rect.top) / ch);
-    console.log("x: " + (e.clientX - rect.left) + ", y: " + (e.clientY - rect.top));
     mx = x;
     my = y;
 }
